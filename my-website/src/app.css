@@ -1,0 +1,124 @@
+:root {
+	--bg: #eceaf7;
+	--surface: #f6f4fc;
+	--line: #d9d4ee;
+	--text: #2a2640;
+	--text-muted: #6a6585;
+	--accent: #6c5ce7;
+	--accent-glow: rgba(108, 92, 231, 0.18);
+	--error: #e5566d;
+	--radius: 1.5rem;
+	--raised:
+		8px 8px 20px rgba(150, 140, 190, 0.4), -6px -6px 16px rgba(255, 255, 255, 0.9),
+		inset -3px -3px 8px rgba(150, 140, 190, 0.18), inset 3px 3px 8px rgba(255, 255, 255, 0.8);
+	--pressed:
+		inset 5px 5px 12px rgba(150, 140, 190, 0.35), inset -4px -4px 10px rgba(255, 255, 255, 0.9);
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: system-ui, sans-serif;
+	line-height: 1.6;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	line-height: 1.6;
+}
+main {
+	flex: 1;
+	width: min(100% - 2rem, 60rem);
+	margin: 0 auto;
+	padding: 2.5rem 0;
+}
+h1,
+h2,
+h3 {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-heading);
+	line-height: 1.2;
+}
+h1 {
+	font-size: clamp(2rem, 5vw, 3rem);
+}
+h2 {
+	font-size: 1.5rem;
+}
+h3 {
+	font-size: 1.15rem;
+}
+a {
+	color: var(--accent-strong);
+}
+:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important;
+	}
+}
+clay {
+	background: var(--surface);
+	border-radius: var(--radius);
+	box-shadow: var(--raised);
+}
+.label {
+	display: inline-block;
+	margin: 0 0 0.75rem;
+	padding: 0.25rem 0.9rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--accent-strong);
+	background: var(--surface);
+	border-radius: 999px;
+	box-shadow: var(--pressed);
+}
+.button {
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+	font: inherit;
+	font-weight: 700;
+	color: #fff;
+	text-decoration: none;
+	background: var(--accent);
+	border: none;
+	border-radius: 999px;
+	cursor: pointer;
+	box-shadow:
+		8px 8px 18px rgba(108, 92, 231, 0.35),
+		-6px -6px 14px rgba(255, 255, 255, 0.85),
+		inset -3px -3px 8px rgba(60, 45, 170, 0.35),
+		inset 3px 3px 8px rgba(255, 255, 255, 0.35);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+.button:hover:not(:disabled) {
+	transform: translateY(-2px);
+}
+.button:active:not(:disabled) {
+	transform: translateY(1px);
+	box-shadow:
+		inset 4px 4px 10px rgba(60, 45, 170, 0.5),
+		inset -3px -3px 8px rgba(255, 255, 255, 0.25);
+}
+.button:disabled {
+	opacity: 0.4;
+	cursor: default;
+}
